@@ -1,6 +1,8 @@
 
 import React, {useState} from 'react'
 import uniqid from 'uniqid';
+import axios from 'axios'
+
 
 export default function AddPost(){
 
@@ -17,7 +19,11 @@ export default function AddPost(){
             postid :uniqid()
         }
 
-        console.log(post);
+        axios.post('/api/post/addnewpost',post).then(res=>{
+            alert(res.data)
+        }).then(err=>{
+            console.log(err)
+        })
     }
 
 
@@ -27,14 +33,14 @@ export default function AddPost(){
                 <div>
                     <input 
                         type='text' 
-                        placeholder='title' 
+                        placeholder='Title' 
                         className='form-control'
                         value = {title}
                         onChange={(e) =>{settitle(e.target.value)}}
                     />
                     <input 
                         type='text' 
-                        placeholder='imageurl' 
+                        placeholder='Imageurl' 
                         className='form-control'
                         value = {imageurl}
                         onChange={(e) =>{setimageurl(e.target.value)}}
