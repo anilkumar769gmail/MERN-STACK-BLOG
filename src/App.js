@@ -15,10 +15,8 @@ function App() {
         <Routes>
           <Route path = '/' element={<PostList/>} exact/>
           <Route path = '/addpost' element={<AddPost/>} exact/>
-          <Route path = '/editpost' element={<EditPost/>} exact/>
-
-        </Routes>
-        
+          <Route path = '/editpost/:postid' element={<EditPost/>} exact/>
+        </Routes> 
       </BrowserRouter>
     </div>
   );
