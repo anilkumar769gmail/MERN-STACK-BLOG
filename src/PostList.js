@@ -21,12 +21,15 @@ export default function PostList(){
     const postlist = postsdata.map(post => {
         return(
             <div className='row justify-content-center'>
+                
                 <PostItem post={post}/>
             </div>
         )
     });
     return(
         <div>
+            <a href="/addpost" className='btn btn-warning m-3'>Add Post</a>
+            
             {postlist}
         </div>
     )

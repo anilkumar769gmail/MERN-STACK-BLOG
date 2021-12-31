@@ -1,7 +1,9 @@
 
 import React, {useState} from 'react'
 import uniqid from 'uniqid';
-import axios from 'axios'
+import axios from 'axios';
+import Swal from 'sweetalert2';
+
 
 //create the posts
 export default function AddPost(){
@@ -20,7 +22,7 @@ export default function AddPost(){
         }
 
         axios.post('/api/post/addnewpost',post).then(res=>{
-            alert(res.data)
+            Swal.fire('Congrats', 'Your Post Added Successfully!!!', 'Success')
         }).then(err=>{
             console.log(err)
         })
@@ -31,9 +33,9 @@ export default function AddPost(){
         <div className='row justify-content-center'>
             <div className='col-md-7' >
                 <h1 className='m-3'>Add New Post</h1>
-                    <div >
+                    <div>
                         <input 
-                            type='text' 
+                            type='text'
                             placeholder='Title' 
                             className='form-control bgimage'
                             value = {title}
@@ -59,7 +61,9 @@ export default function AddPost(){
                             className='btn btn-success pull-left'
                             onClick = {addpost}>
                             Add Post
-                        </button>
+                        </button> 
+                        &nbsp;
+                        <a href='/' className='btn btn-primary'>See Posts</a>
                     </div>
             </div>
             
